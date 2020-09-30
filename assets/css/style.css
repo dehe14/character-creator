@@ -1,0 +1,105 @@
+body{
+  width:100vw;
+  height:100vh;
+  background-image: url("../img/psd design/background.jpg");
+  display: flex;
+  justify-content: space-around;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:  cover;
+}
+
+.leftpanel{
+  width:30vw;
+  height:80vh;
+  background-image: url("../img/psd design/status-panel-left.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.character{
+  width:30vw;
+  height:80vh;
+  background-image: url("../img/race/normal.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: 1px solid blue;
+}
+.rightpanel{
+  width:30vw;
+  height:80vh;
+  margin: 10vh 0 10vh 0;
+  background-image: url("../img/psd design/status-panel-right.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navigation{
+  width: 55%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 1%;
+  transform: rotate(-3deg);
+
+}
+
+.arrowLeft{
+
+  width: 30%;
+  background-image: url("../img/psd design/arrow-left.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(4.5deg);
+
+}
+
+.arrowRight{
+  height: 100%;
+  width: 30%;
+  background-image: url("../img/psd design/arrow-right.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: rotate(4deg);
+}
+
+.circle{
+  width:100%;
+  height:30%;
+  position: absolute;
+  bottom: -3vh;
+  background-image: url("../img/psd design/circle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.category{
+  height: 100%;
+  width: 40%;
+}
+.category h1{
+  font-size: 5vh;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.head{
+  /* width:20%;
+  height:10%; */
+  position: absolute;
+  top: 40px;
+  left: 35.7%;
+
+  z-index: 2;
+}
+.choices{
+  width:60;
+  height: 60%;
+}
