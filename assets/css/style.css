@@ -61,7 +61,7 @@ body{
 .item-list{
   margin: 0 auto;
   width: 68%;
-  height: 45%;
+  height: 65%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -73,12 +73,12 @@ body{
 }
 
 .item{
-  width:33% ;
+  width:50% ;
   height:35% ;
   background-image: url("../img/psd design/display-element-screen.png");
   background-repeat: no-repeat;
-  background-position: -30px -10px ;
-  background-size: 200px 150px;
+  background-size: cover;
+  background-position: center;
   overflow: visible;
   transform: skew(-3deg);
 }
