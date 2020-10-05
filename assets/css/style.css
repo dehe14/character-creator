@@ -83,6 +83,16 @@ body{
   transform: skew(-3deg);
 }
 
+.item img{
+  width:120px ;
+  height:120px ;
+  z-index: -1;
+  margin: 15% 25% 15% 25%;
+  transform: skewY(-4deg);
+  transform
+
+}
+
               /* CHARACTER
 ------------------------------------ */
 
