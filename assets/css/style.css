@@ -1,0 +1,162 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/psd design/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+
+}
+          /* LEFT PANLE
+--------------------------------- */
+
+
+.left-panel{
+  width:35%;
+  height:90%;
+  background-image: url("../img/psd design/status-panel-left.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+
+}
+
+.navigation{
+  width: 80%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.navigation h1{
+  text-align: center;
+  top: 40%;
+  font-size: 35px;
+  width:40%;
+  height: 20%;
+  position: absolute;
+  left: 30%;
+}
+
+.arrows{
+  transform: rotate(4deg);
+  width: 50%;
+  height: 70%;
+}
+
+.item-list{
+  margin: 0 auto;
+  width: 68%;
+  height: 65%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: scroll;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+
+}
+
+.item{
+  width:50% ;
+  height:35% ;
+  background-image: url("../img/psd design/display-element-screen.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: visible;
+  transform: skew(-3deg);
+}
+
+.item img{
+  width:120px ;
+  height:120px ;
+  z-index: -1;
+  margin: 15% 25% 15% 25%;
+  transform: skewY(-4deg);
+  transform
+
+}
+
+              /* CHARACTER
+------------------------------------ */
+
+
+.character{
+  width:30%;
+  height:90%;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#race{
+  position: absolute;
+  height: 80%;
+  width: 90%;
+  left: 5%;
+  z-index: -1;
+}
+
+#head{
+  position: absolute;
+  width:150px;
+  height:150px;
+  left: 33%;
+  top: 1.5%;
+}
+#chest{
+  position: absolute;
+  width:200px;
+  height:250px;
+  left: 29.9%;
+  top: 15.1%;
+}
+#pants{
+  position: absolute;
+  width:138px;
+  height:25%;
+  left: 36.3%;
+  top: 35.5%
+}
+.circle{
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+  height: 20%;
+  background-image: url("../img/psd design/circle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  z-index: -2;
+  overflow: visible;
+}
+
+                /* RIGHT PANEL
+----------------------------------------- */
+
+.right-panel{
+  width:35%;
+  height:90%;
+  background-image: url("../img/psd design/status-panel-right.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
