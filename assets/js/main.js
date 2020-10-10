@@ -25,51 +25,21 @@ const ItemCount = {
 let itemList, currentCategory;
 let origin = "assets/img/"
 
-let assignHair = () => {
-  let hair;
-  let key = 1;
-  for (var i = 0; i < ItemCount.hairCount; i++) {
-    hair = new Image();
-    hair.src = origin + "hair/hair" + key + ".png";
-    Character.head.push(hair);
-    key++;
-  }
-  console.log(key);
-  // return hairCount;
-}
-
-let assignChest = () => {
-  let chest;
-  let key = 1;
-  for (var i = 0; i < ItemCount.chestCount; i++) {
-    chest = new Image();
-    chest.src = origin + "chest/chest" + key + ".png";
-    Character.chest.push(chest);
-    key++;
+let assignItem = (category , itemCount , characterCategory) => {
+  let item;
+  for (var i = 0; i < itemCount; i++) {
+    item = new Image();
+    item.src = origin + category +"/"+ category + (i + 1) + ".png";
+    characterCategory.push(item);
   }
 }
 
-let assignPants = () => {
-  let pants;
-  let key = 1;
-  for (var i = 0; i < ItemCount.legsCount; i++) {
-    pants = new Image();
-    pants.src = origin + "pants/pants" + key + ".png";
-    Character.legs.push(pants);
-    key++;
-  }
-}
 
-let assignRace = () => {
-  let race;
-  let key = 1;
-  for (var i = 0; i < ItemCount.raceCount; i++) {
-    race = new Image();
-    race.src = origin + "race/race" + key + ".png";
-    Character.race.push(race);
-    key++;
-  }
-}
+assignItem("race",6,Character.race);
+assignItem("hair",25,Character.head);
+assignItem("chest",8,Character.chest);
+assignItem("pants",7,Character.legs);
+
 
 let changeCharacter = (itemContainer) => {
   currentCategory = document.getElementById("category").textContent;
@@ -88,6 +58,7 @@ let changeCharacter = (itemContainer) => {
   }
 }
 
+// ITEM CONTAINER
 let createItemContainer = () => {
   let itemContainer;
   itemContainer = document.createElement("div");
@@ -136,11 +107,7 @@ let displayItems = () => {
   }
 }
 
-assignRace();
-assignHair();
-assignChest();
-assignPants();
-displayItems();
+
 
 
 leftArrowLeft.addEventListener('click', () => {
@@ -154,6 +121,7 @@ switchCategory();
 displayItems();
 });
 
+displayItems();
 
 
 let switchCategory = () => {
