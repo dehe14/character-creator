@@ -1,7 +1,7 @@
-let leftArrowLeft = document.getElementsByClassName("arrows")[0];
-let leftArrowRight = document.getElementsByClassName("arrows")[1];
-let rightArrowLeft = document.getElementsByClassName("arrows")[2];
-let rightArrowRight = document.getElementsByClassName("arrows")[3];
+let itemPanelArrowLeft = document.getElementsByClassName("arrows")[0];
+let itemPanelArrowRight = document.getElementsByClassName("arrows")[1];
+let manipulationPanelArrowLeft = document.getElementsByClassName("arrows")[2];
+let manipulationPanelArrowRight = document.getElementsByClassName("arrows")[3];
 let currentRace = document.getElementById("race");
 let currentHead = document.getElementById("head");
 let currentChest = document.getElementById("chest");
@@ -43,20 +43,24 @@ assignItem("pants",7,Character.legs);
 
 let changeCharacter = (itemContainer) => {
   currentCategory = document.getElementById("category").textContent;
+  switch (currentCategory) {
+    case "Race":
+      currentRace.src = itemContainer.getElementsByTagName("img")[0].src;
+    break;
 
-  if (currentCategory == "Race") {
-    currentRace.src = itemContainer.getElementsByTagName("img")[0].src;
-  }
-  if (currentCategory == "Hair") {
-    currentHead.src = itemContainer.getElementsByTagName("img")[0].src;
-  }
-  if (currentCategory == "Chest") {
-    currentChest.src = itemContainer.getElementsByTagName("img")[0].src;
-  }
-  if (currentCategory == "Pants") {
+    case "Hair":
+      currentRace.src = itemContainer.getElementsByTagName("img")[0].src;
+    break;
+
+    case "Chest":
+      currentChest.src = itemContainer.getElementsByTagName("img")[0].src;
+    break;
+
+    case "Pants":
     currentPants.src = itemContainer.getElementsByTagName("img")[0].src;
+    break;
   }
-}
+};
 
 // ITEM CONTAINER
 let createItemContainer = () => {
@@ -110,13 +114,13 @@ let displayItems = () => {
 
 
 
-leftArrowLeft.addEventListener('click', () => {
+itemPanelArrowLeft.addEventListener('click', () => {
 switchCategoryReverse();
 displayItems();
 
 });
 
-leftArrowRight.addEventListener('click', () => {
+itemPanelArrowRight.addEventListener('click', () => {
 switchCategory();
 displayItems();
 });
