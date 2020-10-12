@@ -25,7 +25,7 @@ const ItemCount = {
 let itemList, currentCategory;
 let origin = "assets/img/"
 
-let assignItem = (category , itemCount , characterCategory) => {
+let assignItem = (category, itemCount, characterCategory) => {
   let item;
   for (var i = 0; i < itemCount; i++) {
     item = new Image();
@@ -115,41 +115,53 @@ let displayItems = () => {
 
 
 itemPanelArrowLeft.addEventListener('click', () => {
-switchCategoryReverse();
+switchCategoryReverse("left");
 displayItems();
 
 });
 
 itemPanelArrowRight.addEventListener('click', () => {
-switchCategory();
+switchCategory("right");
 displayItems();
 });
 
 displayItems();
 
 
-let switchCategory = () => {
+let switchCategory = (direction) => {
   currentCategory = document.getElementById("category").textContent;
-  if (currentCategory == "Race") {
-    document.getElementById("category").textContent = "Hair";
-  } else if (currentCategory == "Hair") {
-    document.getElementById("category").textContent = "Chest";
-  } else if (currentCategory == "Chest") {
-    document.getElementById("category").textContent = "Pants";
-  }else if (currentCategory == "Pants") {
-    document.getElementById("category").textContent = "Race";
-  }
-}
+  switch (direction,currentCategory) {
+    case "left","Race":
+      document.getElementById("category").textContent = "Hair";
+      break;
 
-let switchCategoryReverse = () => {
-  currentCategory = document.getElementById("category").textContent;
-  if (currentCategory == "Race") {
-    document.getElementById("category").textContent = "Pants";
-  } else if (currentCategory == "Pants") {
-    document.getElementById("category").textContent = "Chest";
-  } else if (currentCategory == "Chest") {
-    document.getElementById("category").textContent = "Hair";
-  }else if (currentCategory == "Hair") {
-    document.getElementById("category").textContent = "Race";
+    case "left","Hair":
+      document.getElementById("category").textContent = "Chest";
+      break;
+
+    case "left","Chest":
+      document.getElementById("category").textContent = "Pants";
+      break;
+
+    case "left","Pants":
+      document.getElementById("category").textContent = "Race";
+      break;
+
+    case "right","Race":
+      document.getElementById("category").textContent = "Pants";
+      break;
+
+    case "right","Pants":
+      document.getElementById("category").textContent = "Chest";
+      break;
+
+    case "right","Chest":
+      document.getElementById("category").textContent = "Hair";
+      break;
+
+    case "right","Hair":
+      document.getElementById("category").textContent = "Race";
+      break;
+    
   }
 }
