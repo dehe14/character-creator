@@ -21,9 +21,10 @@ const ItemCount = {
   legsCount:7,
 }
 
-
 let itemList, currentCategory;
 let origin = "assets/img/"
+
+//Itterates trough item images and adds them to Character object.
 
 let assignItem = (category, itemCount, characterCategory) => {
   let item;
@@ -34,12 +35,7 @@ let assignItem = (category, itemCount, characterCategory) => {
   }
 }
 
-
-assignItem("race",6,Character.race);
-assignItem("hair",25,Character.head);
-assignItem("chest",8,Character.chest);
-assignItem("pants",7,Character.legs);
-
+//Generates an item on page with the function to change the item on the character
 
 let changeCharacter = (itemContainer) => {
   currentCategory = document.getElementById("category").textContent;
@@ -62,7 +58,6 @@ let changeCharacter = (itemContainer) => {
   }
 };
 
-// ITEM CONTAINER
 let createItemContainer = () => {
   let itemContainer;
   itemContainer = document.createElement("div");
@@ -85,7 +80,6 @@ let generateItems = (characterCategory) => {
 let displayItems = () => {
   currentCategory = document.getElementById("category").textContent;
   itemList = document.getElementsByClassName("item-list")[0];
-
   switch (currentCategory) {
     case "Race":
       generateItems(Character.race);
@@ -106,20 +100,19 @@ let displayItems = () => {
 }
 
 
-
 itemPanelArrowLeft.addEventListener('click', () => {
-switchCategory("left");
-displayItems();
+  switchCategory("left");
+  displayItems();
 
 });
 
 itemPanelArrowRight.addEventListener('click', () => {
-switchCategory("right");
-displayItems();
+  switchCategory("right");
+  displayItems();
 });
 
-displayItems();
 
+// Checks the direction of the clicked arrow and goes to the next
 
 let switchCategory = (direction) => {
   currentCategory = document.getElementById("category").textContent;
@@ -158,3 +151,15 @@ let switchCategory = (direction) => {
 
   }
 }
+
+//Fills the character categories with the items and displays them wehn the page loads.
+
+let main = () =>{
+  assignItem("race",6,Character.race);
+  assignItem("hair",25,Character.head);
+  assignItem("chest",8,Character.chest);
+  assignItem("pants",7,Character.legs);
+  displayItems();
+}
+
+window.onload = main();
