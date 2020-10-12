@@ -49,7 +49,7 @@ let changeCharacter = (itemContainer) => {
     break;
 
     case "Hair":
-      currentRace.src = itemContainer.getElementsByTagName("img")[0].src;
+      currentHead.src = itemContainer.getElementsByTagName("img")[0].src;
     break;
 
     case "Chest":
@@ -73,49 +73,42 @@ let createItemContainer = () => {
   return itemContainer;
 }
 
+let generateItems = (characterCategory) => {
+  itemList.innerHTML = "";
+  for (var i = 0; i < characterCategory.length; i++) {
+    let itemContainer = createItemContainer();
+    itemList.appendChild(itemContainer);
+    itemContainer.appendChild(characterCategory[i]);
+  }
+}
+
 let displayItems = () => {
   currentCategory = document.getElementById("category").textContent;
   itemList = document.getElementsByClassName("item-list")[0];
 
-  if (currentCategory == "Race") {
-    itemList.innerHTML = "";
-    for (var i = 0; i < Character.race.length; i++) {
-      let itemContainer = createItemContainer();
-      itemList.appendChild(itemContainer);
-      itemContainer.appendChild(Character.race[i]);
-    }
-  }
-  if (currentCategory == "Hair") {
-    itemList.innerHTML = "";
-    for (var i = 0; i < Character.head.length; i++) {
-      let itemContainer = createItemContainer();
-      itemList.appendChild(itemContainer);
-      itemContainer.appendChild(Character.head[i]);
-    }
-  }
-  if (currentCategory == "Chest") {
-    itemList.innerHTML = "";
-    for (var i = 0; i < Character.chest.length; i++) {
-      let itemContainer = createItemContainer();
-      itemList.appendChild(itemContainer);
-      itemContainer.appendChild(Character.chest[i]);
-    }
-  }
-  if (currentCategory == "Pants") {
-    itemList.innerHTML = "";
-    for (var i = 0; i < Character.legs.length; i++) {
-      let itemContainer = createItemContainer();
-      itemList.appendChild(itemContainer);
-      itemContainer.appendChild(Character.legs[i]);
-    }
+  switch (currentCategory) {
+    case "Race":
+      generateItems(Character.race);
+      break;
+
+    case "Hair":
+      generateItems(Character.head);
+      break;
+
+    case "Chest":
+      generateItems(Character.chest);
+      break;
+
+    case "Pants":
+      generateItems(Character.legs);
+      break;
   }
 }
 
 
 
-
 itemPanelArrowLeft.addEventListener('click', () => {
-switchCategoryReverse("left");
+switchCategory("left");
 displayItems();
 
 });
@@ -162,6 +155,6 @@ let switchCategory = (direction) => {
     case "right","Hair":
       document.getElementById("category").textContent = "Race";
       break;
-    
+
   }
 }
