@@ -1,3 +1,6 @@
+
+
+
 var itemPanelArrowLeft = document.getElementsByClassName("arrows")[0];
 var itemPanelArrowRight = document.getElementsByClassName("arrows")[1];
 var manipulationPanelArrowLeft = document.getElementsByClassName("arrows")[2];
@@ -6,7 +9,6 @@ var currentRace = document.getElementById("race");
 var currentHead = document.getElementById("head");
 var currentChest = document.getElementById("chest");
 var currentPants = document.getElementById("pants");
-
 var Character = {
   race: [],
   head: [],
@@ -20,12 +22,21 @@ var ItemCount = {
   chestCount:8,
   legsCount:7,
 }
-
 var itemList, currentCategory;
 var origin = "assets/img/"
 
-//Itterates trough item images and adds them to Character object.
+itemPanelArrowLeft.addEventListener('click', function() {
+  switchCategory("left");
+  displayItems();
 
+});
+
+itemPanelArrowRight.addEventListener('click', function() {
+  switchCategory("right");
+  displayItems();
+});
+
+//Itterates trough item images and adds them to Character object.
 function assignItem(category, itemCount, characterCategory) {
   var item;
   for (var i = 0; i < itemCount; i++) {
@@ -36,7 +47,6 @@ function assignItem(category, itemCount, characterCategory) {
 }
 
 //Generates an item on page with the function to change the item on the character
-
 function changeCharacter(itemContainer) {
   currentCategory = document.getElementById("category").textContent;
   switch (currentCategory) {
@@ -100,20 +110,9 @@ function displayItems() {
 }
 
 
-itemPanelArrowLeft.addEventListener('click', arrowLFunction() {
-  switchCategory("left");
-  displayItems();
-
-});
-
-itemPanelArrowRight.addEventListener('click', arrowRFunction() {
-  switchCategory("right");
-  displayItems();
-});
 
 
 // Checks the direction of the clicked arrow and goes to the next
-
 function switchCategory(direction) {
   currentCategory = document.getElementById("category").textContent;
   switch (direction,currentCategory) {
@@ -153,13 +152,11 @@ function switchCategory(direction) {
 }
 
 //Fills the character categories with the items and displays them wehn the page loads.
-
-function main = () =>{
+function main() {
   assignItem("race",6,Character.race);
   assignItem("hair",25,Character.head);
   assignItem("chest",8,Character.chest);
   assignItem("pants",7,Character.legs);
   displayItems();
 }
-
 window.onload = main();
