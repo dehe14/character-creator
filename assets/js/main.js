@@ -1,33 +1,33 @@
-let itemPanelArrowLeft = document.getElementsByClassName("arrows")[0];
-let itemPanelArrowRight = document.getElementsByClassName("arrows")[1];
-let manipulationPanelArrowLeft = document.getElementsByClassName("arrows")[2];
-let manipulationPanelArrowRight = document.getElementsByClassName("arrows")[3];
-let currentRace = document.getElementById("race");
-let currentHead = document.getElementById("head");
-let currentChest = document.getElementById("chest");
-let currentPants = document.getElementById("pants");
+var itemPanelArrowLeft = document.getElementsByClassName("arrows")[0];
+var itemPanelArrowRight = document.getElementsByClassName("arrows")[1];
+var manipulationPanelArrowLeft = document.getElementsByClassName("arrows")[2];
+var manipulationPanelArrowRight = document.getElementsByClassName("arrows")[3];
+var currentRace = document.getElementById("race");
+var currentHead = document.getElementById("head");
+var currentChest = document.getElementById("chest");
+var currentPants = document.getElementById("pants");
 
-const Character = {
+var Character = {
   race: [],
   head: [],
   chest: [],
   legs: [],
 }
 
-const ItemCount = {
+var ItemCount = {
   raceCount:6,
   hairCount:25,
   chestCount:8,
   legsCount:7,
 }
 
-let itemList, currentCategory;
-let origin = "assets/img/"
+var itemList, currentCategory;
+var origin = "assets/img/"
 
 //Itterates trough item images and adds them to Character object.
 
-let assignItem = (category, itemCount, characterCategory) => {
-  let item;
+function assignItem(category, itemCount, characterCategory) {
+  var item;
   for (var i = 0; i < itemCount; i++) {
     item = new Image();
     item.src = origin + category +"/"+ category + (i + 1) + ".png";
@@ -37,7 +37,7 @@ let assignItem = (category, itemCount, characterCategory) => {
 
 //Generates an item on page with the function to change the item on the character
 
-let changeCharacter = (itemContainer) => {
+function changeCharacter(itemContainer) {
   currentCategory = document.getElementById("category").textContent;
   switch (currentCategory) {
     case "Race":
@@ -58,8 +58,8 @@ let changeCharacter = (itemContainer) => {
   }
 };
 
-let createItemContainer = () => {
-  let itemContainer;
+function createItemContainer() {
+  var itemContainer;
   itemContainer = document.createElement("div");
   itemContainer.setAttribute('class', 'item');
   itemContainer.addEventListener('click', function() {
@@ -68,16 +68,16 @@ let createItemContainer = () => {
   return itemContainer;
 }
 
-let generateItems = (characterCategory) => {
+function generateItems(characterCategory) {
   itemList.innerHTML = "";
   for (var i = 0; i < characterCategory.length; i++) {
-    let itemContainer = createItemContainer();
+    var itemContainer = createItemContainer();
     itemList.appendChild(itemContainer);
     itemContainer.appendChild(characterCategory[i]);
   }
 }
 
-let displayItems = () => {
+function displayItems() {
   currentCategory = document.getElementById("category").textContent;
   itemList = document.getElementsByClassName("item-list")[0];
   switch (currentCategory) {
@@ -100,13 +100,13 @@ let displayItems = () => {
 }
 
 
-itemPanelArrowLeft.addEventListener('click', () => {
+itemPanelArrowLeft.addEventListener('click', arrowLFunction() {
   switchCategory("left");
   displayItems();
 
 });
 
-itemPanelArrowRight.addEventListener('click', () => {
+itemPanelArrowRight.addEventListener('click', arrowRFunction() {
   switchCategory("right");
   displayItems();
 });
@@ -114,7 +114,7 @@ itemPanelArrowRight.addEventListener('click', () => {
 
 // Checks the direction of the clicked arrow and goes to the next
 
-let switchCategory = (direction) => {
+function switchCategory(direction) {
   currentCategory = document.getElementById("category").textContent;
   switch (direction,currentCategory) {
     case "left","Race":
@@ -154,7 +154,7 @@ let switchCategory = (direction) => {
 
 //Fills the character categories with the items and displays them wehn the page loads.
 
-let main = () =>{
+function main = () =>{
   assignItem("race",6,Character.race);
   assignItem("hair",25,Character.head);
   assignItem("chest",8,Character.chest);
