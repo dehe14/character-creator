@@ -1,29 +1,35 @@
 
+itemPanelArrowLeft = document.getElementsByClassName("arrows")[0];
+itemPanelArrowRight = document.getElementsByClassName("arrows")[1];
+manipulationPanelArrowLeft = document.getElementsByClassName("arrows")[2];
+manipulationPanelArrowRight = document.getElementsByClassName("arrows")[3];
+currentRace = document.getElementById("race");
+currentHead = document.getElementById("head");
+currentChest = document.getElementById("chest");
+currentPants = document.getElementById("pants");
+origin = "assets/img/"
 
-
-var itemPanelArrowLeft = document.getElementsByClassName("arrows")[0];
-var itemPanelArrowRight = document.getElementsByClassName("arrows")[1];
-var manipulationPanelArrowLeft = document.getElementsByClassName("arrows")[2];
-var manipulationPanelArrowRight = document.getElementsByClassName("arrows")[3];
-var currentRace = document.getElementById("race");
-var currentHead = document.getElementById("head");
-var currentChest = document.getElementById("chest");
-var currentPants = document.getElementById("pants");
-var Character = {
+Character = {
   race: [],
   head: [],
   chest: [],
   legs: [],
 }
 
-var ItemCount = {
+ ItemCount = {
   raceCount:6,
   hairCount:25,
   chestCount:8,
   legsCount:7,
 }
-var itemList, currentCategory;
-var origin = "assets/img/"
+
+
+function initData() {
+var itemPanelArrowLeft, itemPanelArrowRight, manipulationPanelArrowLeft, manipulationPanelArrowRight, currentRace, currentHead, currentChest, currentPants, itemList, currentCategory, origin;
+var Character, ItemCount;
+}
+
+
 
 itemPanelArrowLeft.addEventListener('click', function() {
   switchCategory("left");
@@ -46,7 +52,7 @@ function assignItem(category, itemCount, characterCategory) {
   }
 }
 
-//Generates an item on page with the function to change the item on the character
+//Changes the item on the character based on the category
 function changeCharacter(itemContainer) {
   currentCategory = document.getElementById("category").textContent;
   switch (currentCategory) {
@@ -68,6 +74,7 @@ function changeCharacter(itemContainer) {
   }
 };
 
+//Creates a container with an event to switch the curent item on the character to the item clicked
 function getNewItemContainer() {
   var itemContainer;
   itemContainer = document.createElement("div");
@@ -151,6 +158,7 @@ function switchCategory(direction) {
 
 //Fills the character categories with the items and displays them wehn the page loads.
 function main() {
+  initData();
   assignItem("race",6,Character.race);
   assignItem("hair",25,Character.head);
   assignItem("chest",8,Character.chest);
