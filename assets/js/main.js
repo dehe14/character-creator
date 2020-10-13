@@ -68,7 +68,7 @@ function changeCharacter(itemContainer) {
   }
 };
 
-function createItemContainer() {
+function getNewItemContainer() {
   var itemContainer;
   itemContainer = document.createElement("div");
   itemContainer.setAttribute('class', 'item');
@@ -81,7 +81,7 @@ function createItemContainer() {
 function generateItems(characterCategory) {
   itemList.innerHTML = "";
   for (var i = 0; i < characterCategory.length; i++) {
-    var itemContainer = createItemContainer();
+    var itemContainer = getNewItemContainer();
     itemList.appendChild(itemContainer);
     itemContainer.appendChild(characterCategory[i]);
   }
