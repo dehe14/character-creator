@@ -110,8 +110,6 @@ function displayItems() {
 }
 
 
-
-
 // Checks the direction of the clicked arrow and goes to the next
 function switchCategory(direction) {
   currentCategory = document.getElementById("category").textContent;
